@@ -8,6 +8,7 @@ $(document).ready(function(){
         .done(function(data){
           location.reload();
           alert("You scraped " + data.length + " articles from foodnetwork.com");
+          console.log(data);
         });
     });
 
