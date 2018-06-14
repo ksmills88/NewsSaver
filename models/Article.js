@@ -1,0 +1,33 @@
+// This file has the information for the Articles
+
+var mongoose = require("mongoose");
+
+// Set up schemas here:
+// Save a reference to the Schema constructor
+var Schema = mongoose.Schema;
+
+// We are creating a new Schema object here:
+// This is similar to a Sequelize model
+var ArticleSchema = new Schema({
+  title: {
+    type: String,
+    required: true
+  },
+  link: {
+    type: String,
+    required: true
+  },
+  // `note` is an object that stores a Note id
+  // The ref property links the Articles to the Notes
+  // This allows us to populate the Article with an associated Note
+  note: {
+    type: Schema.Types.ObjectId,
+    ref: "Note"
+  }
+});
+
+// This creates our model from the above schema, using mongoose's model method
+var Article = mongoose.model("Article", ArticleSchema);
+
+// Export the Article model
+module.exports = Article;
