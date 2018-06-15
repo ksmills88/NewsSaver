@@ -34,10 +34,11 @@ var exphbs = require("express-handlebars");
 
 app.engine("handlebars", exphbs({ defaultLayout: "main" }));
 app.set("view engine", "handlebars");
+
 mongoose.Promise = Promise;
 
-// var MONGODB_URI = process.env.MONGODB_URI || "mongodb://localhost/newsscraper";
-mongoose.connect("mongodb://localhost/newsscraper");
+var MONGODB_URI = process.env.MONGODB_URI || "mongodb://localhost/newsscraper";
+mongoose.connect(MONGODB_URI);
 // Routes
 // A GET route for scraping the website
 // A GET route for scraping the echoJS website

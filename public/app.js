@@ -6,9 +6,10 @@ $(document).ready(function(){
         url: "/scrape"
       })
         .done(function(data){
+            console.log(data);
           location.reload();
           alert("You scraped " + data.length + " articles from foodnetwork.com");
-          console.log(data);
+          
         });
     });
 
